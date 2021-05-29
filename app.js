@@ -29,6 +29,7 @@ app.use(
         return eventName;
       },
     },
+    graphiql: true,
   })
 );
 
