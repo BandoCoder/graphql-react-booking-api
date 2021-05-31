@@ -45,7 +45,16 @@ app.use(
     ),
     rootValue: {
       events: () => {
-        return events;
+        return Event.find()
+          .then((events) => {
+            return events.map((event) => {
+              //make the _id value a string (its a mongodb id object)
+              return { ...event._doc, _id: event.id };
+            });
+          })
+          .catch((err) => {
+            throw err;
+          });
       },
       createEvent: (args) => {
         const event = new Event({
@@ -58,7 +67,7 @@ app.use(
           .save()
           .then((res) => {
             console.log(res);
-            return { ...res._doc };
+            return { ...res._doc, _id: res._doc._id.toString() };
           })
           .catch((err) => {
             console.log(err);
