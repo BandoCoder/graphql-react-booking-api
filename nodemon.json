@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_USER": "bandobrad",
+    "MONGO_PASSWORD": "rMQPbVKlv9d1qj9P",
+    "MONGO_DB": "graphqly"
+  }
+}
