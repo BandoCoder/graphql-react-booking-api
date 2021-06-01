@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const eventSchema = new mongoose.Schema({
   title: {
@@ -18,6 +18,10 @@ const eventSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: true,
+  },
+  creator: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
 });
 
